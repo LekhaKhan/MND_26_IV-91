@@ -142,6 +142,8 @@ def main(m):
         print('Дисперсія однорідна')
     else:
         print('Дисперсія неоднорідна')
+        main(m+1)
+        exit()
 
     s2b = sum(dispersion) / 4
     s2bs_avg = s2b/4*m
@@ -186,4 +188,4 @@ def main(m):
 
 
 if __name__ == '__main__':
-    main(m=5)
+    main(m=3)
