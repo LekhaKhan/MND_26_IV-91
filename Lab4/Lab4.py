@@ -86,6 +86,7 @@ def Fisher(b_arr, s2b, y_avg, y_res, m):
 
 
 def main(m):
+
     N = 8  # Кількість комбінацій
 
     # Рівняння регресії з ефектом взаємодії
@@ -169,6 +170,7 @@ def main(m):
         for i in range(len(b_list)):
             b = b_list[i] if t_arr[i] != 0 else 0
             b_arr.append(b)
+        Koef = len(list(filter(lambda x: x > 0, b_arr)))
 
         y_res = []
         for i in range(N):
@@ -179,10 +181,16 @@ def main(m):
             print(f'ŷ = {y}')
             y_res.append(y)
         Fisher(b_arr, s2b, y_avg, y_res, m)
+
+        return Koef
+
     else:
         main(m+1)
         exit()
 
 
 if __name__ == '__main__':
-    main(m=3)
+    summa = 0
+    for i in range(100):
+        summa += main(m=3)
+    print(summa, " = Суммарна к-ть значимих коефіцієнтів")
