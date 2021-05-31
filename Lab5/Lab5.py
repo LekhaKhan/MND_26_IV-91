@@ -3,7 +3,7 @@ from numpy.linalg import det
 from copy import deepcopy
 from scipy.stats import t
 
-
+#
 def naturalize(matrix_of_plan, min_max_arr, flag):
     result = []
     for i in range(len(matrix_of_plan)):

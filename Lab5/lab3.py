@@ -13,9 +13,6 @@ def naturalize(matrix_of_plan, min_max_arr):
 
 def main3(m, x1, x2, x3):
     # m = 3
-    # x1 = [-40, 20]
-    # x2 = [-25, 10]
-    # x3 = [-25, -10]
     print(f'x1_min = {x1[0]}, x1_max = {x1[1]}')
     print(f'x2_min = {x2[0]}, x2_max = {x2[1]}')
     print(f'x3_min = {x3[0]}, x3_max = {x3[1]}')

@@ -1,17 +1,6 @@
 from random import randint
 from scipy.stats import t
-import csv
 from Lab5 import main5
-
-
-def write_data(filename, data):
-    with open(filename, 'w') as f:
-        writer = csv.writer(f, delimiter=';')
-        writer.writerow(('X0', 'X1', 'X2', 'X3', 'X1X2', 'X1X3', 'X2X3', 'X1X2X3', 'Y1', 'Y2', 'Y3', 'Y_avg'))
-        for i in range(8):
-            writer.writerow([data[0][i], data[1][i], data[2][i], data[3][i], data[4][i], data[5][i],
-              data[6][i], data[7][i], data[8][i], data[9][i], data[10][i], data[11][i]])
-
 
 def naturalize(matrix_of_plan, min_max_arr):
     result = []
@@ -101,7 +90,7 @@ def fishers_test(b_arr, s2b, y_avg, y_res, m):
         print('Рівняння регресії адекватно оригіналу при рівні значимості 0.05')
         return True
 
-
+#
 def main4(m, x1, x2, x3):
     N = 8  # Кількість комбінацій
 
@@ -164,11 +153,6 @@ def main4(m, x1, x2, x3):
         y_avg.append(current_sum/len(y_arr))
     print('y average:', y_avg)
 
-    matrix = [x0_plan1, x1_plan1, x2_plan1, x3_plan1, x12_plan1, x13_plan1,
-              x23_plan1, x123_plan1, y_arr[0], y_arr[1], y_arr[2], y_avg]
-
-    write_data('output.csv', matrix)
-
     b0 = sum(y_avg) / N
     b1 = sum([y_avg[i] * x1_plan1[i] for i in range(N)]) / N
     b2 = sum([y_avg[i] * x2_plan1[i] for i in range(N)]) / N
@@ -209,8 +193,3 @@ def main4(m, x1, x2, x3):
     else:
         main4(m+1, x1, x2, x3)
         exit()
-
-
-if __name__ == '__main__':
-    # main()
-    pass
